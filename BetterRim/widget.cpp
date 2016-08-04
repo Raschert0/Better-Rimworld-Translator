@@ -1,6 +1,5 @@
 #include "widget.h"
 #include <QFile>
-#include <QXmlStreamReader>
 #include <QDebug>
 #include <QMessageBox>
 #include <QFileDialog>
@@ -50,6 +49,42 @@ void Widget::saveWorkingSet()
     }
 }
 
+int Widget::checkElementInSet(QString &name, QXmlStreamReader &xml, QVector<QString> &chain)
+{
+    QMessageBox::StandardButton reply;
+    if(xml.isCharacters() && !xml.isWhitespace()){
+        if(working_set.count(name)){  //in working_set
+            if(working_set[name]){    //and allowed
+                return return_exist;
+            }else{                          //and declined
+                if(chain.size() > 1 && working_set[chain[chain.size() - 2]] > 1){
+                    return return_exist;
+                }
+            }
+        }else{                              //not in working_set
+            reply = QMessageBox::question(this,"Add to set","You want to add\nKey: " + name + "\nValue: " + xml.text().toString(),
+                                          QMessageBox::Yes|QMessageBox::No);
+            if(reply == QMessageBox::Yes){
+                working_set.insert(name,1);
+            }else{
+                working_set.insert(name,0);
+            }
+        return return_add;
+        }
+    }else{
+        if(!working_set.count(name)){
+            reply = QMessageBox::question(this,"Add to set","You want to add\nKey: " + name,
+                                          QMessageBox::Yes|QMessageBox::No);
+            if(reply == QMessageBox::Yes){
+                working_set.insert(name,2);
+            }else{
+                working_set.insert(name,0);
+            }
+        }
+    }
+    return return_continue;
+}
+
 void Widget::Start()
 {
     start.setVisible(false);
@@ -65,61 +100,38 @@ void Widget::Start()
 
     QXmlStreamReader xml_wf(&working_file);
     QXmlStreamReader::TokenType token = xml_wf.readNext();
-    QMessageBox::StandardButton reply;
     QVector<QString> chain;
     QString buf_string{""};
-
+    int status;
     while (!xml_wf.atEnd() && !xml_wf.hasError()){
         switch(token){
-            case QXmlStreamReader::StartDocument:
+        case QXmlStreamReader::StartDocument:
+            break;
+        case QXmlStreamReader::StartElement:
+            buf_string = xml_wf.name().toString();
+            chain.push_back(buf_string);
+            token = xml_wf.readNext();
+            status = checkElementInSet(buf_string, xml_wf, chain);
+            switch(status){
+            case return_continue:
+                continue;
+            case return_add:
+            case return_exist:
+                qDebug() << xml_wf.text();
                 break;
-            case QXmlStreamReader::StartElement:
-                buf_string = xml_wf.name().toString();
-                chain.push_back(buf_string);
-                token = xml_wf.readNext();
-                if(token == QXmlStreamReader::Characters && !xml_wf.isWhitespace()){
-                    if(working_set.count(buf_string)){  //in working_set
-                        if(working_set[buf_string]){    //and allowed
-                            qDebug() << xml_wf.text();
-                        }else{                          //and declined
-                            if(chain.size() > 1){
-                                if(working_set[chain[chain.size() - 2]] > 1){
-                                    qDebug() << xml_wf.text();
-                                }
-                            }
-                        }
-                    }else{                              //not in working_set
-                        reply = QMessageBox::question(this,"Add to set","You want to add\nKey: " + buf_string + "\nValue: " + xml_wf.text().toString(),
-                                                      QMessageBox::Yes|QMessageBox::No);
-                        if(reply == QMessageBox::Yes){
-                            working_set.insert(buf_string,1);
-                            qDebug() << xml_wf.text();
-                        }else{
-                            working_set.insert(buf_string,0);
-                        }
-                    }
-                    break;
-                }else{
-                    if(!working_set.count(buf_string)){
-                        reply = QMessageBox::question(this,"Add to set","You want to add\nKey: " + buf_string,
-                                                      QMessageBox::Yes|QMessageBox::No);
-                        if(reply == QMessageBox::Yes){
-                            working_set.insert(buf_string,2);
-                            qDebug() << buf_string << " added";
-                        }else{
-                            working_set.insert(buf_string,0);
-                        }
-                    }
-                    continue;
-                }
-            case QXmlStreamReader::EndElement:
-                if(chain.size()){
-                    chain.removeLast();
-                }else{
-                    qDebug() << "Something wrong with chain. Last name: " << buf_string;
-                }
             default:
                 break;
+            }
+            break;
+        case QXmlStreamReader::EndElement:
+            if(chain.size()){
+                chain.removeLast();
+            }else{
+                qDebug() << "Something wrong with chain. Last name: " << buf_string;
+            }
+            break;
+        default:
+            break;
         }
         token = xml_wf.readNext();
     }

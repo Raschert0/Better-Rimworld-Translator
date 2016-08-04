@@ -14,6 +14,10 @@ TEMPLATE = app
 CONFIG += c++11
 
 SOURCES += main.cpp\
-        widget.cpp
+        widget.cpp \
+    def.cpp \
+    outptransfile.cpp
 
-HEADERS  += widget.h
+HEADERS  += widget.h \
+    def.h \
+    outptransfile.h

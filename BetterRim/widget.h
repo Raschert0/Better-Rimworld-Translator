@@ -6,6 +6,7 @@
 #include <QString>
 #include <QMap>
 #include <QXmlStreamReader>
+#include "def.h"
 
 const QString working_file_path{"D:/Git/BetterRim/files/wf.xml"};
 

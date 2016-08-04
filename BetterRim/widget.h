@@ -16,7 +16,7 @@ public:
     ~Widget(){}
 private:
     QPushButton start{"Тест"};
-    QMap<QString,bool> working_set;
+    QMap<QString,int> working_set;
     void tryLoadWorkingSet();
     void saveWorkingSet();
 public slots:

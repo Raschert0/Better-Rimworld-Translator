@@ -1,256 +1,154 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Defs>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DefPackage-ConceptDef>
 
-  <BiomeDef>
-    <defName>AridShrubland</defName>
-    <label>arid shrubland</label>
-    <description>A dry region, but not dry enough to become a true desert. Open plains with grasses and bushes give way to scattered groves of trees. Plants are hardy and there is a moderate density of animals.</description>
-    <workerClass>BiomeWorker_AridShrubland</workerClass>
-    <animalDensity>4.0</animalDensity>
-    <plantDensity>0.5</plantDensity>
-    <baseColor>(125,101,78)</baseColor>
-    <soundsAmbient>
-      <li>AmbientNightInsects_Standard</li>
-    </soundsAmbient>
-    <diseaseMtbDays>60</diseaseMtbDays>
-    <diseases>
-      <li>
-        <diseaseInc>Disease_Flu</diseaseInc>
-        <commonality>100</commonality>
-      </li>
-      <li>
-        <diseaseInc>Disease_Plague</diseaseInc>
-        <commonality>100</commonality>
-      </li>
-      <li>
-        <diseaseInc>Disease_FibrousMechanites</diseaseInc>
-        <commonality>30</commonality>
-      </li>
-      <li>
-        <diseaseInc>Disease_SensoryMechanites</diseaseInc>
-        <commonality>30</commonality>
-      </li>
-      <li>
-        <diseaseInc>Disease_GutWorms</diseaseInc>
-        <commonality>60</commonality>
-      </li>
-      <li>
-        <diseaseInc>Disease_MuscleParasites</diseaseInc>
-        <commonality>60</commonality>
-      </li>
-    </diseases>
-    <terrainsByFertility>
-      <li>
-        <terrain>Sand</terrain>
-        <min>-999</min>
-        <max>0.45</max>
-      </li>
-      <li>
-        <terrain>Soil</terrain>
-        <min>0.45</min>
-        <max>0.90</max>
-      </li>
-      <li>
-        <terrain>SoilRich</terrain>
-        <min>0.90</min>
-        <max>999</max>
-      </li>
-    </terrainsByFertility>
-    <baseWeatherCommonalities>
-      <Clear>18</Clear>
-      <Fog>1</Fog>
-      <Rain>2</Rain>
-      <DryThunderstorm>1</DryThunderstorm>
-      <RainyThunderstorm>1</RainyThunderstorm>
-      <FoggyRain>0.5</FoggyRain>
-      <SnowGentle>4</SnowGentle>
-      <SnowHard>4</SnowHard>
-    </baseWeatherCommonalities>
-    <wildPlants>
-        <PlantAgave>0.3</PlantAgave>
-        <PlantSaguaroCactus>0.3</PlantSaguaroCactus>
-        <PlantPincushionCactus>0.6</PlantPincushionCactus>
-        <PlantRaspberry>0.1</PlantRaspberry>
-        <PlantBush>0.7</PlantBush>
-        <PlantGrass>6.9</PlantGrass>
-        <PlantDandelion>0.8</PlantDandelion>
-        <PlantTreeOak>0.25</PlantTreeOak>
-        <PlantTreePoplar>0.35</PlantTreePoplar>
-    </wildPlants>
-    <wildAnimals>
-      <Muffalo>0.5</Muffalo>
-      <Gazelle>0.5</Gazelle>
-      <Ibex>0.3</Ibex>
-      <Alpaca>0.2</Alpaca>
-      <Elephant>0.5</Elephant>
-      <Squirrel>1</Squirrel>
-      <Boomrat>1</Boomrat>
-      <Iguana>0.2</Iguana>
-      <Rhinoceros>0.15</Rhinoceros>
-      <WildBoar>0.4</WildBoar>
-      <Boomalope>0.5</Boomalope>
-      <Emu>0.3</Emu>
-      <Ostrich>0.5</Ostrich>
-      <Rat>1.0</Rat>
-      <Megatherium>0.03</Megatherium>
-      <Cougar>0.10</Cougar>
-      <WolfTimber>0.01</WolfTimber>
-      <FoxFennec>0.03</FoxFennec>
-    </wildAnimals>
-    <allowedPackAnimals>
-      <li>Muffalo</li>
-      <li>Dromedary</li>
-    </allowedPackAnimals>
-  </BiomeDef>
+	<ConceptDef>
+		<defName>CameraDolly</defName>
+		<priority>95</priority>
+		<helpTexts>
+			<li>Move the camera by clicking and dragging the MIDDLE MOUSE BUTTON or with the WASD keys.</li>
+		</helpTexts>
+	</ConceptDef>
 
-  <BiomeDef>
-    <defName>Desert</defName>
-    <label>desert</label>
-    <description>A very dry, hot area which supports little life.</description>
-    <workerClass>BiomeWorker_Desert</workerClass>
-    <animalDensity>0.9</animalDensity>
-    <plantDensity>0.14</plantDensity>
-    <baseColor>(0.592, 0.568, 0.396)</baseColor>
-    <diseaseMtbDays>80</diseaseMtbDays>
-    <diseases>
-      <li>
-        <diseaseInc>Disease_Flu</diseaseInc>
-        <commonality>100</commonality>
-      </li>
-      <li>
-        <diseaseInc>Disease_Plague</diseaseInc>
-        <commonality>80</commonality>
-      </li>
-      <li>
-        <diseaseInc>Disease_FibrousMechanites</diseaseInc>
-        <commonality>30</commonality>
-      </li>
-      <li>
-        <diseaseInc>Disease_SensoryMechanites</diseaseInc>
-        <commonality>30</commonality>
-      </li>
-      <li>
-        <diseaseInc>Disease_GutWorms</diseaseInc>
-        <commonality>60</commonality>
-      </li>
-      <li>
-        <diseaseInc>Disease_MuscleParasites</diseaseInc>
-        <commonality>60</commonality>
-      </li>
-    </diseases>
-    <terrainsByFertility>
-      <li>
-        <terrain>Sand</terrain>
-        <min>-999</min>
-        <max>0.80</max>
-      </li>
-      <li>
-        <terrain>Soil</terrain>
-        <min>0.80</min>
-        <max>999</max>
-      </li>
-    </terrainsByFertility>
-    <baseWeatherCommonalities>
-      <Clear>18</Clear>
-      <Rain>2</Rain>
-      <DryThunderstorm>1</DryThunderstorm>
-      <RainyThunderstorm>1</RainyThunderstorm>
-      <SnowGentle>4</SnowGentle>
-      <SnowHard>4</SnowHard>
-    </baseWeatherCommonalities>
-    <wildPlants>
-        <PlantAgave>0.25</PlantAgave>
-        <PlantSaguaroCactus>1</PlantSaguaroCactus>
-        <PlantPincushionCactus>1</PlantPincushionCactus>
-        <PlantBush>0.25</PlantBush>
-        <PlantGrass>6</PlantGrass>
-        <PlantDandelion>0.5</PlantDandelion>
-        <PlantTreePoplar>0.45</PlantTreePoplar>
-    </wildPlants>
-    <wildAnimals>
-      <Gazelle>0.1</Gazelle>
-      <Emu>0.02</Emu>
-      <Megascarab>1</Megascarab>
-      <Iguana>0.7</Iguana>
-      <Dromedary>0.5</Dromedary>
-      <Boomalope>0.2</Boomalope>
-      <Ostrich>0.2</Ostrich>
-      <Rat>0.30</Rat>
-      <Cougar>0.04</Cougar>
-      <FoxFennec>0.02</FoxFennec>
-    </wildAnimals>
-    <allowedPackAnimals>
-      <li>Muffalo</li>
-      <li>Dromedary</li>
-    </allowedPackAnimals>
-  </BiomeDef>
+	<ConceptDef>
+		<defName>Rescuing</defName>
+		<priority>55</priority>
+		<needsOpportunity>True</needsOpportunity>
+		<helpTexts>
+			<li>To rescue a wounded colonist, select a healthy colonist and the right-click on the wounded one.</li>
+		</helpTexts>
+	</ConceptDef>
 
-  <BiomeDef>
-    <defName>ExtremeDesert</defName>
-    <label>extreme desert</label>
-    <description>An extremely hot, dry area, devoid of almost all living creatures. Immense heat and limited vegetation make it very difficult to survive here, even for well-adapted animals.</description>
-    <workerClass>BiomeWorker_ExtremeDesert</workerClass>
-    <animalDensity>0.45</animalDensity>
-    <plantDensity>0.006</plantDensity>
-    <baseColor>(0.707, 0.664, 0.371)</baseColor>
-    <diseaseMtbDays>90</diseaseMtbDays>
-    <diseases>
-      <li>
-        <diseaseInc>Disease_Flu</diseaseInc>
-        <commonality>100</commonality>
-      </li>
-      <li>
-        <diseaseInc>Disease_Plague</diseaseInc>
-        <commonality>80</commonality>
-      </li>
-      <li>
-        <diseaseInc>Disease_FibrousMechanites</diseaseInc>
-        <commonality>30</commonality>
-      </li>
-      <li>
-        <diseaseInc>Disease_SensoryMechanites</diseaseInc>
-        <commonality>30</commonality>
-      </li>
-      <li>
-        <diseaseInc>Disease_GutWorms</diseaseInc>
-        <commonality>40</commonality>
-      </li>
-      <li>
-        <diseaseInc>Disease_MuscleParasites</diseaseInc>
-        <commonality>40</commonality>
-      </li>
-    </diseases>
-    <terrainsByFertility>
-      <li>
-        <terrain>Sand</terrain>
-        <min>-999</min>
-        <max>999</max>
-      </li>
-    </terrainsByFertility>
-    <baseWeatherCommonalities>
-      <Clear>18</Clear>
-      <Rain>1</Rain>
-      <DryThunderstorm>1</DryThunderstorm>
-      <RainyThunderstorm>1</RainyThunderstorm>
-      <SnowGentle>1.5</SnowGentle>
-      <SnowHard>1</SnowHard>
-    </baseWeatherCommonalities>
-    <wildPlants>
-      <PlantAgave>0.25</PlantAgave>
-      <PlantSaguaroCactus>1</PlantSaguaroCactus>
-      <PlantGrass>6</PlantGrass>
-    </wildPlants>
-    <wildAnimals>
-      <Megascarab>1</Megascarab>
-      <Iguana>0.3</Iguana>
-      <Rat>0.15</Rat>
-      <Dromedary>0.15</Dromedary>
-      <FoxFennec>0.04</FoxFennec>
-    </wildAnimals>
-    <allowedPackAnimals>
-      <li>Muffalo</li>
-      <li>Dromedary</li>
-    </allowedPackAnimals>
-  </BiomeDef>
+	<ConceptDef>
+		<defName>Capturing</defName>
+		<priority>55</priority>
+		<needsOpportunity>True</needsOpportunity>
+		<helpTexts>
+			<li>An enemy has been incapacitated. You can capture them!</li>
+			<li>To capture, select a colonist, right-click on the incapacitated enemy, and select Capture.\n\nYou'll need an extra bed marked for prisoner use.</li>
+		</helpTexts>
+	</ConceptDef>
+  
+	<ConceptDef>
+		<defName>InteractingWithTraders</defName>
+		<priority>50</priority>
+		<needsOpportunity>True</needsOpportunity>
+		<helpTexts>
+			<li>You can talk to people with ? over their heads.\n\nSelect a colonist and right-click on the character with ? attached to his head.</li>
+		</helpTexts>
+	</ConceptDef>
 
-</Defs>
+	<ConceptDef>
+		<defName>Drafting</defName>
+		<priority>45</priority>
+		<needsOpportunity>True</needsOpportunity>
+    <highlightTag>ToggleDrafted</highlightTag>
+    <helpTexts>
+			<li>To control colonists directly for combat, Draft them by selecting them and hitting the DRAFT button.</li>
+			<li>A drafted colonist will do only what you tell them, and can only take combat actions. Those with weapons will use them when possible.\n\nDon't leave colonists Drafted forever - they'll starve and become unhappy.</li>
+		</helpTexts>
+	</ConceptDef>
+
+  <ConceptDef>
+    <defName>AnimalsDontAttackDoors</defName>
+    <priority>40</priority>
+    <needsOpportunity>True</needsOpportunity>
+    <noteTeaches>true</noteTeaches>
+    <helpTexts>
+      <li>Manhunting animals generally won't attack doors or inactive turrets.\n\nYou can escape them by getting inside or behind a wall. But they'll wait for you.</li>
+    </helpTexts>
+  </ConceptDef>
+  
+  <ConceptDef>
+    <defName>BillsTab</defName>
+    <needsOpportunity>true</needsOpportunity>
+    <opportunityDecays>false</opportunityDecays>
+    <priority>40</priority>
+    <highlightTag>TabBills</highlightTag>
+    <helpTexts>
+      <li>To make colonists work at a table, select the table and open the Bills tab. Here, you can say what meals to cook, what things to craft, what creatures to butcher.</li>
+    </helpTexts>
+  </ConceptDef>
+
+	<ConceptDef>
+		<defName>TVForSickPeople</defName>
+		<priority>35</priority>
+		<needsOpportunity>true</needsOpportunity>
+    <noteTeaches>true</noteTeaches>
+    <helpTexts>
+			<li>To entertain sick people in bed, set up a TV they can watch.</li>
+		</helpTexts>
+	</ConceptDef>
+  
+  <ConceptDef>
+    <defName>AnimalTraining</defName>
+    <priority>30</priority>
+    <highlightTag>TabTraining</highlightTag>
+    <helpTexts>
+      <li>You can assign a tame animal to be trained in specific skills on its TRAINING tab.\n\nAnimals can't be trained continuously; they need time between training sessions.</li>
+    </helpTexts>
+  </ConceptDef>
+  
+  <ConceptDef>
+    <defName>StorageTabCategories</defName>
+    <priority>20</priority>
+    <needsOpportunity>True</needsOpportunity>
+    <helpTexts>
+      <li>In the storage tab of a stockpile, you can expand categories to allow or deny specific items. Click the triangles to the left of category names.</li>
+    </helpTexts>
+  </ConceptDef>
+
+  <ConceptDef>
+    <defName>Mining</defName>
+    <priority>12</priority>
+    <highlightTag>DesignatorMine</highlightTag>
+    <helpTexts>
+      <li>You can designate where to mine by opening the ARCHITECT menu and selecting the ORDERS tab.\n\nSome mineable blocks yield STEEL, GOLD, PLASTEEL, and other useful materials.</li>
+    </helpTexts>
+  </ConceptDef>
+
+  <ConceptDef>
+    <defName>HostilityResponse</defName>
+    <priority>8</priority>
+    <highlightTag>HostilityResponse</highlightTag>
+    <helpTexts>
+      <li>You can configure how colonists should automatically respond to threats like predatory animals.\n\nChoose from FLEE, ATTACK, and IGNORE modes in the ASSIGN menu.</li>
+    </helpTexts>
+  </ConceptDef>
+  
+  <ConceptDef>
+    <defName>OpeningComms</defName>
+    <priority>5</priority>
+    <needsOpportunity>True</needsOpportunity>
+    <helpTexts>
+      <li>To communicate, select a colonist and right-click on the comms console.</li>
+    </helpTexts>
+  </ConceptDef>
+
+  <ConceptDef>
+    <defName>Deterioration</defName>
+    <priority>4</priority>
+    <noteTeaches>true</noteTeaches>
+    <helpTexts>
+      <li>Items left outdoors will slowly deteriorate.\n\nIf you want to store items long-term, keep them under a roof.</li>
+    </helpTexts>
+  </ConceptDef>
+
+  <ConceptDef>
+    <defName>InspectRoomStats</defName>
+    <priority>3</priority>
+    <highlightTag>InspectRoomStats</highlightTag>
+    <helpTexts>
+      <li>You can inspect the impressiveness, wealth, and beauty of individual rooms using the ROOM STATS INSPECT toggle in the bottom right.</li>
+    </helpTexts>
+  </ConceptDef>
+  
+  <ConceptDef>
+    <defName>ClickingMessages</defName>
+    <priority>3</priority>
+    <highlightTag>Messages</highlightTag>
+    <helpTexts>
+      <li>You can click on the notifications in the top-left of the screen to instantly center the camera on their subject.</li>
+    </helpTexts>
+  </ConceptDef>
+  
+</DefPackage-ConceptDef>
